@@ -113,7 +113,7 @@ export class AppComponent  {
 ```html
 <button (click)="download()">Download</button>
 <mat-progress-bar *ngIf="download$ | async as download"
-	[mode]="download.state == 'PENDING' ? 'buffer' : 'determinate'" 
-    [value]="download.progress">
+  [mode]="download.state == 'PENDING' ? 'buffer' : 'determinate'" 
+  [value]="download.progress">
 </mat-progress-bar>
 ```
