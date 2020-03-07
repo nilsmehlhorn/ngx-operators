@@ -10,7 +10,7 @@ import {finalize} from 'rxjs/operators'
  * @returns stream which will indicate loading through passed subject
  */
 export function indicate<T>(indicator: Subject<boolean>): (source: Observable<T>) => Observable<T> {
-  return (source: Observable<T>): Observable<T> => source.pipe(
+  return (source: Observable<T>) => source.pipe(
     prepare(() => indicator.next(true)),
     finalize(() => indicator.next(false))
   )

@@ -8,8 +8,8 @@ import {HttpErrorResponse} from '@angular/common/http'
  * @param codeErrors mapping from status code to error
  * @returns stream which will map http error codes to passed errors
  */
-export const throwForCodes = (codeErrors: {[status: number]: () => Error}) => {
-  return <T>(source: Observable<T>) =>
+export function throwForCodes<T>(codeErrors: {[status: number]: () => Error}): (source: Observable<T>) => Observable<T>  {
+  return (source: Observable<T>) =>
     source.pipe(catchError(error => {
       if (error instanceof HttpErrorResponse) {
         return throwError(codeErrors[error.status]?.() ?? error)
