@@ -1,0 +1,27 @@
+{
+  "name": "ngx-operators",
+  "version": "0.0.1",
+  "author": "Nils Melhorn <mail@nils-mehlhorn.de> (https://nils-mehlhorn.de)",
+  "description": "RxJS operators for Angular",
+  "homepage": "https://github.com/nilsmehlhorn/ngx-operators",
+  "keywords": [
+    "rxjs",
+    "angular",
+    "typescript",
+    "javascript",
+    "download",
+    "loading"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nilsmehlhorn/ngx-operators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nilsmehlhorn/ngx-operators/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.5",
+    "@angular/core": "^9.0.5",
+    "tslib": "^1.10.0"
+  }
+}

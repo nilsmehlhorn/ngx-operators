@@ -19,10 +19,18 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-operators": [
+        "dist/ngx-operators/ngx-operators",
+        "dist/ngx-operators"
+      ]
+    },
+    "removeComments": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "annotateForClosureCompiler": false
   }
 }
