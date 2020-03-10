@@ -1,6 +1,6 @@
 {
   "name": "ngx-operators",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Nils Melhorn <mail@nils-mehlhorn.de> (https://nils-mehlhorn.de)",
   "description": "RxJS operators for Angular",
   "homepage": "https://github.com/nilsmehlhorn/ngx-operators",
