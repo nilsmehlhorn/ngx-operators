@@ -88,7 +88,7 @@ this.http.post('/users', newUser).pipe(
 
 Transform HTTP events into an observable download for indicating progress.
 
-`download(saver?: (b: Blob) => void): (source: Observable<HttpEvent<Blob>>) => Observable<Download<Blob>>`
+`download(saver?: (b: Blob) => void): (source: Observable<HttpEvent<Blob>>) => Observable<Download>`
 
 **saver**: Function for saving download when it's done. This could be `saveAs` from [FileSaver.js](https://github.com/eligrey/FileSaver.js). When no `saver` is provided the download won't be saved by this operator.
 
@@ -98,7 +98,7 @@ Transform HTTP events into an observable download for indicating progress.
 @Component({...})
 export class AppComponent  {
 
-  download$: Observable<Download<Blob>>
+  download$: Observable<Download>
 
   constructor(private http: HttpClient) {}
 
@@ -118,3 +118,5 @@ export class AppComponent  {
   [value]="download.progress">
 </mat-progress-bar>
 ```
+
+[__read more__](https://nils-mehlhorn.de/posts/angular-file-download-progress)
