@@ -6,11 +6,14 @@
     "prebuild": "cpx README.md projects/ngx-operators",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
+    "test": "ng test --watch false",
+    "test:watch": "ng test",
     "test:ci": "ng test --watch false --code-coverage",
     "posttest:ci": "cat ./coverage/ngx-operators/lcov.info | codecov",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prerelease": "npm ci && npm run lint && npm run test && npm run build",
+    "release": "npm publish --folder ./dist/ngx-operators"
   },
   "files": [
     "dist/ngx-operators"
