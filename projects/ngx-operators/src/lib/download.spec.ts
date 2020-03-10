@@ -43,6 +43,10 @@ describe('download', () => {
       loaded: 1024,
       total: 1024
     })
+    request.next({
+      type: HttpEventType.DownloadProgress,
+      loaded: 1024
+    })
     request.next(new HttpResponse({
       body: blob,
       status: 200,

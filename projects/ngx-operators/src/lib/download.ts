@@ -26,7 +26,7 @@ export function download(
             return {
               progress: event.total
                 ? Math.round((100 * event.loaded) / event.total)
-                : 0,
+                : last.progress,
               state: 'IN_PROGRESS',
               content: null
             }
