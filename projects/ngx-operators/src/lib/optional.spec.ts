@@ -1,6 +1,6 @@
 import {of, throwError} from 'rxjs'
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http'
-import {optional} from './optional';
+import {optional} from './optional'
 
 describe('optional', () => {
   it('should return undefined if error status is 404', done => {
