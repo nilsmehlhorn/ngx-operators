@@ -120,3 +120,26 @@ export class AppComponent  {
 ```
 
 [__read more__](https://nils-mehlhorn.de/posts/angular-file-download-progress)
+
+
+### optional
+
+Maps 404 error responses to `undefined`; effectively marking the resource as optional.
+
+`optional(): (source: Observable<T>) => Observable<T | undefined>`
+
+**Example**
+
+```typescript
+@Component({...})
+export class AppComponent  {
+  user$: Observable<User | undefined>
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.user$ = this.http.get<User>('/users/123').pipe(optional());
+  }
+}
+```
+
