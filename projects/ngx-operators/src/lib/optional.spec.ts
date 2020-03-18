@@ -1,14 +1,16 @@
 import {of, throwError} from 'rxjs'
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http'
+import {defaultIfEmpty} from 'rxjs/operators'
 import {optional} from './optional'
 
 describe('optional', () => {
   it('should return undefined if error status is 404', done => {
     throwError(new HttpErrorResponse({status: 404})).pipe(
-      optional()
+      optional(),
+      defaultIfEmpty()
     ).subscribe(
       value => {
-        expect(value).toBeUndefined()
+        expect(value).toBeNull()
         done()
       }, fail)
   })
