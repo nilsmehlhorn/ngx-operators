@@ -126,6 +126,8 @@ export class AppComponent  {
 
 Ignores 404 error responses by instead completing the underlying observable.
 
+Note: You can use [defaultIfEmpty](https://rxjs-dev.firebaseapp.com/api/operators/defaultIfEmpty) to provide a fallback value.
+
 `ignoreNotFound(): (source: Observable<T>) => Observable<T>`
 
 **Example**
@@ -133,14 +135,13 @@ Ignores 404 error responses by instead completing the underlying observable.
 ```typescript
 @Component({...})
 export class AppComponent  {
-  user$: Observable<User | null>
+  user$: Observable<User>
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.user$ = this.http.get<User>('/users/123').pipe(
-      ignoreNotFound(),
-      defaultIfEmpty()
+      ignoreNotFound()
     );
   }
 }
