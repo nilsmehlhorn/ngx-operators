@@ -124,7 +124,7 @@ export class AppComponent  {
 
 ### optional
 
-Maps 404 error responses to `undefined`; effectively marking the resource as optional.
+Ignores 404 error responses by instead completing the underlying observable.
 
 `optional(): (source: Observable<T>) => Observable<T | undefined>`
 

@@ -5,6 +5,7 @@ import {catchError} from 'rxjs/operators'
 /**
  * If the underlying request throws with a 404 error, it will swallow the error
  * and return the `EMPTY` observable instead. All other errors will be rethrown.
+ * and complete the observable instead. All other errors will be rethrown.
  *
  * You can then set a fallback value with `defaultIfEmpty`.
  *
