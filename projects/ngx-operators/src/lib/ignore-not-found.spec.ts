@@ -1,6 +1,6 @@
 import {of, throwError} from 'rxjs'
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http'
-import {ignoreNotFound} from './ignoreNotFound'
+import {ignoreNotFound} from './ignore-not-found'
 
 describe('ignoreNotFound', () => {
   it('should complete upon 404 status', done => {
