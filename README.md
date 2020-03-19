@@ -122,23 +122,26 @@ export class AppComponent  {
 [__read more__](https://nils-mehlhorn.de/posts/angular-file-download-progress)
 
 
-### optional
+### ignoreNotFound
 
 Ignores 404 error responses by instead completing the underlying observable.
 
-`optional(): (source: Observable<T>) => Observable<T | undefined>`
+`ignoreNotFound(): (source: Observable<T>) => Observable<T>`
 
 **Example**
 
 ```typescript
 @Component({...})
 export class AppComponent  {
-  user$: Observable<User | undefined>
+  user$: Observable<User | null>
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.user$ = this.http.get<User>('/users/123').pipe(optional());
+    this.user$ = this.http.get<User>('/users/123').pipe(
+      ignoreNotFound(),
+      defaultIfEmpty()
+    );
   }
 }
 ```

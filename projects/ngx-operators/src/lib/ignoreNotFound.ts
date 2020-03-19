@@ -11,11 +11,11 @@ import {catchError} from 'rxjs/operators'
  * @returns stream which will map 404 errors to `undefined`
  * @example
  * this.http.get<User>('/users/123').pipe(
- *   optional(),
+ *   ignoreNotFound(),
  *   defaultIfEmpty() // will use null as the default fallback
  * )
  */
-export function optional<T>(): (source: Observable<T>) => Observable<T> {
+export function ignoreNotFound<T>(): (source: Observable<T>) => Observable<T> {
   return (source: Observable<T>): Observable<T> => source.pipe(
     catchError(error => {
       if (error instanceof HttpResponseBase && error.status === 404) {
