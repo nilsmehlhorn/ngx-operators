@@ -16,8 +16,8 @@ import {catchError} from 'rxjs/operators'
  *   defaultIfEmpty() // will use null as the default fallback
  * )
  */
-export function optional<T>(): (source: Observable<T>) => Observable<T | undefined> {
-  return (source: Observable<T>): Observable<T | undefined> => source.pipe(
+export function optional<T>(): (source: Observable<T>) => Observable<T> {
+  return (source: Observable<T>): Observable<T> => source.pipe(
     catchError(error => {
       if (error instanceof HttpResponseBase && error.status === 404) {
           return EMPTY
