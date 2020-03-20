@@ -12,6 +12,7 @@
     "download",
     "loading"
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/nilsmehlhorn/ngx-operators.git"
