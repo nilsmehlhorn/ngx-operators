@@ -1,0 +1,8 @@
+{
+  "packageFiles": [
+    {
+      "filename": "projects/ngx-operators/package.json",
+      "type": "json"
+    }
+  ]
+}
