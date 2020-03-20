@@ -4,5 +4,11 @@
       "filename": "projects/ngx-operators/package.json",
       "type": "json"
     }
+  ],
+  "bumpFiles": [
+    {
+      "filename": "projects/ngx-operators/package.json",
+      "type": "json"
+    }
   ]
 }
