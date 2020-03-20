@@ -12,6 +12,7 @@
     "posttest:ci": "cat ./coverage/ngx-operators/lcov.info | codecov",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "bump": "standard-version",
     "prerelease": "npm ci && npm run lint && npm run test && npm run build",
     "release": "npm publish --folder ./dist/ngx-operators"
   },
