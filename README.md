@@ -147,3 +147,46 @@ export class AppComponent  {
 }
 ```
 
+### noZoneRunner
+
+Runs an observable sequence outside of the [Angular zone](https://angular.io/guide/zone) so that change detection won't be triggered for intermediate, possibly async, operations. This way change detection can only be run when you actually change your view model. Initialize the runner by passing [NgZone](https://angular.io/api/core/NgZone) which you inject into your service or component. Then wrap your observable with the runner.
+
+`noZoneRunner(zone: NgZone): (source: Observable<T>) => Observable<T>`
+
+**Example**
+```typescript
+@Component({...})
+export class AppComponent  {
+
+  constructor(private zone: NgZone,
+              private el: ElementRef) {}
+
+  ngOnInit() {
+    const runner = noZoneRunner(this.zone)
+    runner(fromEvent(this.el.nativeElement, 'mousemove').pipe(
+      /* fromEvent & operations are outside zone, won't trigger change-detection */
+    )).subscribe(() => {
+      /* operations back inside zone, will trigger change-detection */
+    })
+  }
+}
+```
+### runOutsideZone / runInZone
+
+Moves observable execution in and out of [Angular zone](https://angular.io/guide/zone).
+
+`runOutsideZone(zone: NgZone): (source: Observable<T>) => Observable<T>`
+
+`runInZone(zone: NgZone): (source: Observable<T>) => Observable<T>`
+
+**Example**
+
+```typescript
+obs$.pipe(
+  runOutsideZone(this.zone),
+  tap(() => console.log(NgZone.isInAngularZone())), // false
+  runInZone(this.zone)
+).subscribe(() => console.log(NgZone.isInAngularZone())) // true
+```
+
+
