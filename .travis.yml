@@ -5,12 +5,7 @@ dist: bionic
 sudo: required
 
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - dpkg
-      - google-chrome-stable
+  chrome: stable
 
 script:
   - commitlint-travis
