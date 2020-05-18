@@ -24,6 +24,7 @@ describe('runInZone', () => {
   it('should run task outside zone', done => zone.run(() => {
     const runner = noZoneRunner(zone)
     const obs$ = of('value').pipe(
+      tap(() => expect(NgZone.isInAngularZone()).toBeFalsy()),
       switchMap(value => {
         expect(NgZone.isInAngularZone()).toBeFalsy()
         return timer(1000).pipe(map(() => {
