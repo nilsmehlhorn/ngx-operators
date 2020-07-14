@@ -2,7 +2,11 @@ language: node_js
 node_js:
   - "10"
 dist: bionic
-sudo: required
+sudo: false
+
+cache:
+  directories:
+    - node_modules
 
 addons:
   chrome: stable
