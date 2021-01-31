@@ -36,13 +36,12 @@
               "projects/ngx-operators/tsconfig.lib.json",
               "projects/ngx-operators/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
-    }},
+    }
+  },
   "cli": {
     "analytics": false
   },

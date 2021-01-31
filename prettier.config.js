@@ -12,5 +12,5 @@ module.exports = {
   rangeEnd: Infinity,
   requirePragma: false,
   insertPragma: false,
-  proseWrap: "preserve",
-}
+  proseWrap: "preserve"
+};

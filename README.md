@@ -9,6 +9,7 @@ ngx-operators is a collection of helpful RxJS operators for Angular apps.
 ## Installation
 
 Install via
+
 ```bash
 npm i ngx-operators
 ```
@@ -24,24 +25,24 @@ Returns an Observable that mirrors the source Observable, but will call a specif
 **callback**: Function to be called when source is being subscribed to.
 
 **Example**
+
 ```typescript
-const source = of('value').pipe(
-  prepare(() => console.log('subscribed'))
-)
-source.subscribe() // 'subscribed'
+const source = of("value").pipe(prepare(() => console.log("subscribed")));
+source.subscribe(); // 'subscribed'
 ```
 
-[__read more__](https://nils-mehlhorn.de/posts/indicating-loading-the-right-way-in-angular)
+[**read more**](https://nils-mehlhorn.de/posts/indicating-loading-the-right-way-in-angular)
 
 ### indicate
 
 Indicates whether the observable is currently loading (meaning subscription is active and it hasn't completed or errored).
- 
+
 `indicate<T>(indicator: Subject<boolean>): (source: Observable<T>) => Observable<T>`
 
 **indicator**: Subject as target for indication
 
 **Example**
+
 ```typescript
 @Component({...})
 export class UserComponent  {
@@ -56,6 +57,7 @@ export class UserComponent  {
   }
 }
 ```
+
 ```typescript
 <button (click)="create()">Create User</button>
 <div *ngIf="loading$ | async">
@@ -63,7 +65,7 @@ export class UserComponent  {
 </div>
 ```
 
-[__read more__](https://nils-mehlhorn.de/posts/indicating-loading-the-right-way-in-angular)
+[**read more**](https://nils-mehlhorn.de/posts/indicating-loading-the-right-way-in-angular)
 
 ### throwForCodes
 
@@ -76,12 +78,12 @@ Maps Angular HTTP status codes to more semantic errors.
 **Example**
 
 ```typescript
-this.http.post('/users', newUser).pipe(
+this.http.post("/users", newUser).pipe(
   throwForCodes({
-    409: () => new Error('User already exists'),
-    400: () => new Error('Invalid user')
+    409: () => new Error("User already exists"),
+    400: () => new Error("Invalid user")
   })
-)
+);
 ```
 
 ### download
@@ -111,16 +113,18 @@ export class AppComponent  {
   }
 }
 ```
+
 ```html
 <button (click)="download()">Download</button>
-<mat-progress-bar *ngIf="download$ | async as download"
-  [mode]="download.state == 'PENDING' ? 'buffer' : 'determinate'" 
-  [value]="download.progress">
+<mat-progress-bar
+  *ngIf="download$ | async as download"
+  [mode]="download.state == 'PENDING' ? 'buffer' : 'determinate'"
+  [value]="download.progress"
+>
 </mat-progress-bar>
 ```
 
-[__read more__](https://nils-mehlhorn.de/posts/angular-file-download-progress)
-
+[**read more**](https://nils-mehlhorn.de/posts/angular-file-download-progress)
 
 ### ignoreNotFound
 
@@ -154,6 +158,7 @@ Runs an observable sequence outside of the [Angular zone](https://angular.io/gui
 `noZoneRunner(zone: NgZone): (source: Observable<T>) => Observable<T>`
 
 **Example**
+
 ```typescript
 @Component({...})
 export class AppComponent  {
@@ -171,6 +176,7 @@ export class AppComponent  {
   }
 }
 ```
+
 ### runOutsideZone / runInZone
 
 Moves observable execution in and out of [Angular zone](https://angular.io/guide/zone).
@@ -182,11 +188,11 @@ Moves observable execution in and out of [Angular zone](https://angular.io/guide
 **Example**
 
 ```typescript
-obs$.pipe(
-  runOutsideZone(this.zone),
-  tap(() => console.log(NgZone.isInAngularZone())), // false
-  runInZone(this.zone)
-).subscribe(() => console.log(NgZone.isInAngularZone())) // true
+obs$
+  .pipe(
+    runOutsideZone(this.zone),
+    tap(() => console.log(NgZone.isInAngularZone())), // false
+    runInZone(this.zone)
+  )
+  .subscribe(() => console.log(NgZone.isInAngularZone())); // true
 ```
-
-
