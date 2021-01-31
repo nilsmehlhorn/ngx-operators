@@ -12,12 +12,12 @@ export function upload(): (
   source: Observable<HttpEvent<unknown>>
 ) => Observable<Upload> {
   const initialState: Upload = { state: "PENDING", progress: 0 };
-  const reduceState = (upload: Upload, event: HttpEvent<unknown>): Upload => {
+  const reduceState = (state: Upload, event: HttpEvent<unknown>): Upload => {
     if (isHttpProgressEvent(event)) {
       return {
         progress: event.total
           ? Math.round((100 * event.loaded) / event.total)
-          : upload.progress,
+          : state.progress,
         state: "IN_PROGRESS",
       };
     }
@@ -27,7 +27,7 @@ export function upload(): (
         state: "DONE",
       };
     }
-    return upload;
+    return state;
   };
   return (source) =>
     source.pipe(
