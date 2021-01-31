@@ -1,14 +1,7 @@
 import {HttpEvent, HttpEventType, HttpProgressEvent, HttpResponse} from '@angular/common/http'
 import {Observable} from 'rxjs'
 import {distinctUntilChanged, scan} from 'rxjs/operators'
-
-function isHttpResponse<T>(event: HttpEvent<T>): event is HttpResponse<T> {
-  return event.type === HttpEventType.Response
-}
-
-function isHttpProgressEvent(event: HttpEvent<unknown>): event is HttpProgressEvent {
-  return event.type === HttpEventType.DownloadProgress || event.type === HttpEventType.UploadProgress
-}
+import { isHttpProgressEvent, isHttpResponse } from './http'
 
 export interface Download {
   content: Blob | null
