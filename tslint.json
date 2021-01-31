@@ -1,5 +1,8 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
   "rulesDirectory": [
     "codelyzer"
   ],
@@ -117,8 +120,11 @@
     },
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
-    "semicolon": [true, "never"]
-  ,    "variable-name": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "variable-name": {
       "options": [
         "ban-keywords",
         "check-format",
@@ -135,5 +141,5 @@
         "check-typecast"
       ]
     }
-}
+  }
 }
