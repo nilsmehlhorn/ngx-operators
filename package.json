@@ -10,7 +10,6 @@
     "test": "ng test --watch false",
     "test:watch": "ng test",
     "test:ci": "ng test --watch false --code-coverage",
-    "posttest:ci": "cat ./coverage/ngx-operators/lcov.info | codecov",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "bump": "standard-version",
