@@ -8,3 +8,4 @@ export * from "./lib/throw-for-codes";
 export * from "./lib/download";
 export * from "./lib/ignore-not-found";
 export * from "./lib/run-zone";
+export * from "./lib/upload";

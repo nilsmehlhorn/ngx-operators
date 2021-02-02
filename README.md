@@ -126,6 +126,50 @@ export class AppComponent  {
 
 [**read more**](https://nils-mehlhorn.de/posts/angular-file-download-progress)
 
+### upload
+
+Transform HTTP events into an observable upload for indicating progress.
+
+`upload(): (source: Observable<HttpEvent<unknown>>) => Observable<Upload>`
+
+**Example**
+
+```typescript
+@Component()
+export class AppComponent {
+  upload$: Observable<Upload>;
+
+  constructor(private http: HttpClient) {}
+
+  upload(files: FileList | null) {
+    const file = files?.item(0);
+    if (!file) {
+      return;
+    }
+    const data = new FormData();
+    data.append("file", file);
+    this.upload$ = this.http
+      .post("/users/123/avatar", data, {
+        reportProgress: true,
+        observe: "events"
+      })
+      .pipe(upload());
+  }
+}
+```
+
+```html
+<input type="file" #fileInput (change)="upload(fileInput.files)" />
+<mat-progress-bar
+  *ngIf="upload$ | async as upload"
+  [mode]="upload.state == 'PENDING' ? 'buffer' : 'determinate'"
+  [value]="upload.progress"
+>
+</mat-progress-bar>
+```
+
+[**read more**](https://nils-mehlhorn.de/posts/angular-file-upload-progress)
+
 ### ignoreNotFound
 
 Ignores 404 error responses by instead completing the underlying observable.
