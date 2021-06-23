@@ -21,8 +21,8 @@
     "url": "https://github.com/nilsmehlhorn/ngx-operators/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.5",
-    "@angular/core": "^9.0.5"
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
