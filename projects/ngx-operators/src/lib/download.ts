@@ -38,7 +38,10 @@ export function upload<T>(): (
     source.pipe(
       scan(reduceState, initialState),
       distinctUntilChanged(
-        (a, b) => a.state === b.state && a.progress === b.progress
+        (a, b) =>
+          a.state === b.state &&
+          a.progress === b.progress &&
+          a.content === b.content
       )
     );
 }
