@@ -28,16 +28,6 @@
             "tsConfig": "projects/ngx-operators/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-operators/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-operators/tsconfig.lib.json",
-              "projects/ngx-operators/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     }

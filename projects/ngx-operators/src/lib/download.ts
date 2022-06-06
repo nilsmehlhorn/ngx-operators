@@ -1,7 +1,7 @@
-import { HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { distinctUntilChanged, scan } from 'rxjs/operators';
-import { isHttpProgressEvent, isHttpResponse } from './http';
+import { HttpEvent } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { distinctUntilChanged, scan } from "rxjs/operators";
+import { isHttpProgressEvent, isHttpResponse } from "./http";
 export interface Download {
   content: Blob | null;
   progress: number;

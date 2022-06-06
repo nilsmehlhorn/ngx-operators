@@ -1,4 +1,9 @@
-import { HttpEvent, HttpResponse, HttpEventType, HttpProgressEvent } from "@angular/common/http";
+import {
+  HttpEvent,
+  HttpResponse,
+  HttpEventType,
+  HttpProgressEvent
+} from "@angular/common/http";
 
 export function isHttpResponse<T>(
   event: HttpEvent<T>

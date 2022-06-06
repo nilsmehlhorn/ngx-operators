@@ -18,18 +18,18 @@ export function upload(): (
         progress: event.total
           ? Math.round((100 * event.loaded) / event.total)
           : state.progress,
-        state: "IN_PROGRESS",
+        state: "IN_PROGRESS"
       };
     }
     if (isHttpResponse(event)) {
       return {
         progress: 100,
-        state: "DONE",
+        state: "DONE"
       };
     }
     return state;
   };
-  return (source) =>
+  return source =>
     source.pipe(
       scan(reduceState, initialState),
       distinctUntilChanged(
