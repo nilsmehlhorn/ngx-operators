@@ -43,7 +43,8 @@
   },
   "cli": {
     "analytics": false,
-    "defaultCollection": "@angular-eslint/schematics"
-  },
-  "defaultProject": "ngx-operators"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
 }
