@@ -11,7 +11,6 @@
     "test:watch": "ng test",
     "test:ci": "ng test --watch false --code-coverage",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "bump": "standard-version",
     "prerelease": "npm ci && npm run lint && npm run test && npm run build",
     "release": "npm publish --folder ./dist/ngx-operators"
@@ -68,7 +67,6 @@
     "karma-jasmine": "~4.0.0",
     "ng-packagr": "^13.3.1",
     "prettier": "2.2.1",
-    "protractor": "~7.0.0",
     "standard-version": "^9.3.1",
     "ts-node": "~8.3.0",
     "tslint-config-prettier": "1.18.0",
