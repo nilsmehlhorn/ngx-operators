@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/nilsmehlhorn/ngx-operators/compare/v4.0.0...v5.0.0) (2022-08-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** Angular 13
+
+### build
+
+* **deps:** update to angular 13 ([#17](https://github.com/nilsmehlhorn/ngx-operators/issues/17)) ([0df39a9](https://github.com/nilsmehlhorn/ngx-operators/commit/0df39a9c2fe65df59e29f3b5ea22f2374a6aab02))
+
 ### [4.0.1](https://github.com/nilsmehlhorn/ngx-operators/compare/v4.0.0...v4.0.1) (2021-08-21)
 
 ## [4.0.0](https://github.com/nilsmehlhorn/ngx-operators/compare/v3.0.0...v4.0.0) (2021-08-21)
