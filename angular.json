@@ -28,12 +28,22 @@
             "tsConfig": "projects/ngx-operators/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-operators/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-operators/**/*.ts",
+              "projects/ngx-operators/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "defaultCollection": "@angular-eslint/schematics"
   },
   "defaultProject": "ngx-operators"
 }
