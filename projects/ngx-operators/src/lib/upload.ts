@@ -1,30 +1,33 @@
-import { HttpEvent } from "@angular/common/http";
+import { HttpEvent, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { distinctUntilChanged, scan } from "rxjs/operators";
 import { isHttpProgressEvent, isHttpResponse } from "./http";
 
-export interface Upload {
+export interface Upload<T> {
   progress: number;
   state: "PENDING" | "IN_PROGRESS" | "DONE";
+  body: T | null;
 }
 
-export function upload(): (
-  source: Observable<HttpEvent<unknown>>
-) => Observable<Upload> {
-  const initialState: Upload = { state: "PENDING", progress: 0 };
-  const reduceState = (state: Upload, event: HttpEvent<unknown>): Upload => {
+export function upload<T = unknown>(): (
+  source: Observable<HttpEvent<T>>
+) => Observable<Upload<T>> {
+  const initialState: Upload<T> = { state: "PENDING", progress: 0, body: null };
+  const reduceState = (state: Upload<T>, event: HttpEvent<T>): Upload<T> => {
     if (isHttpProgressEvent(event)) {
       return {
         progress: event.total
           ? Math.round((100 * event.loaded) / event.total)
           : state.progress,
         state: "IN_PROGRESS",
+        body: null,
       };
     }
-    if (isHttpResponse(event)) {
+    if (isHttpResponse<T>(event)) {
       return {
         progress: 100,
         state: "DONE",
+        body: event.body,
       };
     }
     return state;
