@@ -130,7 +130,7 @@ export class AppComponent  {
 
 Transform HTTP events into an observable upload for indicating progress.
 
-`upload(): (source: Observable<HttpEvent<unknown>>) => Observable<Upload>`
+`upload<T = unknown>(): (source: Observable<HttpEvent<T>>) => Observable<Upload<T>>`
 
 **Example**
 

@@ -5,15 +5,15 @@ import { upload } from './upload'
 
 describe('upload', () => {
   it('should transform HTTP upload', done => {
-    const request = new Subject<HttpEvent<unknown>>()
+    const request = new Subject<HttpEvent<number>>()
     request.pipe(upload(), toArray())
       .subscribe(uploads => {
         expect(uploads).toEqual([
-          {progress: 0, state: 'PENDING'},
-          {progress: 1, state: 'IN_PROGRESS'},
-          {progress: 50, state: 'IN_PROGRESS'},
-          {progress: 100, state: 'IN_PROGRESS'},
-          {progress: 100, state: 'DONE'}
+          {progress: 0, state: 'PENDING', body: null},
+          {progress: 1, state: 'IN_PROGRESS', body: null},
+          {progress: 50, state: 'IN_PROGRESS', body: null},
+          {progress: 100, state: 'IN_PROGRESS', body: null},
+          {progress: 100, state: 'DONE', body: 3}
         ])
         done()
       })
@@ -45,7 +45,8 @@ describe('upload', () => {
     })
     request.next(new HttpResponse({
       status: 200,
-      url: '/uploads/file.pdf'
+      url: '/uploads/file.pdf',
+      body: 3
     }))
     request.complete()
   })
