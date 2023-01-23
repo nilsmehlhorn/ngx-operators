@@ -25,17 +25,19 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.1.1",
-    "@angular/common": "^14.1.1",
-    "@angular/compiler": "^14.1.1",
-    "@angular/core": "^14.1.1",
-    "@angular/forms": "^14.1.1",
-    "@angular/platform-browser": "^14.1.1",
-    "@angular/platform-browser-dynamic": "^14.1.1",
-    "@angular/router": "^14.1.1",
     "rxjs": "^6.5.5",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^14.1.1 || 15.x",
+    "@angular/common": "^14.1.1 || 15.x",
+    "@angular/compiler": "^14.1.1 || 15.x",
+    "@angular/core": "^14.1.1 || 15.x",
+    "@angular/forms": "^14.1.1 || 15.x",
+    "@angular/platform-browser": "^14.1.1 || 15.x",
+    "@angular/platform-browser-dynamic": "^14.1.1 || 15.x",
+    "@angular/router": "^14.1.1 || 15.x",
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.1.1",
