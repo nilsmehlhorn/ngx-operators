@@ -15,15 +15,19 @@
     "module": "es2020",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
-    "lib": ["es2018", "dom"],
+    "target": "ES2022",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
       "ngx-operators": [
         "dist/ngx-operators/ngx-operators",
         "dist/ngx-operators"
       ]
     },
-    "removeComments": false
+    "removeComments": false,
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
