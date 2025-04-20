@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.0.0](https://github.com/nilsmehlhorn/ngx-operators/compare/v10.0.0...v11.0.0) (2025-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to angular 19
+
+### build
+
+* update to angular 19 ([67b5a7c](https://github.com/nilsmehlhorn/ngx-operators/commit/67b5a7c04ea3fe4218e79063834ff8f2766bb773))
+
 ## [10.0.0](https://github.com/nilsmehlhorn/ngx-operators/compare/v9.0.0...v10.0.0) (2025-04-20)
 
 
